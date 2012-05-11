@@ -1,0 +1,62 @@
+Status: Wait a little
+----
+alert: This is a primary alert!
+----
+
+dps_sprint: 19
+----
+dps_date: March, 12th
+----
+
+
+panel_version: 
+12.1.3
+----
+panel_status: 
+green
+----
+panel_info: 
+<b>Mandatory.</b> You always need to have the latest version.
+----
+panel_hint: 
+----
+
+
+producer_version: 
+1.9.1
+----
+producer_status: 
+yellow
+----
+producer_info: 
+Some issues reported.<br />
+Problems and unexpected behaviour when creating iPad3-content, <a href="http://blogs.adobe.com/indesigndocs/2012/03/guidelines-for-creating-folios-for-ipad-3.html">read this article.</a>
+----
+producer_hint: Updating the producer tools is always optional. You should wait for the Content Viewer to be approved by Apple before updating.
+----
+
+
+viewerbuilder_version: 
+1.9.0
+----
+viewerbuilder_status: 
+green
+----
+viewerbuilder_info: 
+No issues reported.
+----
+viewerbuilder_hint: 
+----
+
+
+viewer_version: 
+2.4.0.x
+----
+viewer_status: 
+red
+----
+viewer_info: 
+Not yet approved by Apple.
+----
+viewer_hint: If you are a pro/enterprise customer you can <a href="http://adobe.ly/owncontentviewer">build your own Content Viewer</a> to test the latest tools.
+----

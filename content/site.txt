@@ -1,0 +1,9 @@
+Title: caniupdateadobedps.com
+----
+Author: Johannes Henseler
+----
+Description: Can you safely update to the latest tools of the Adobe Digital Publishing Suite?
+----
+Keywords: Adobe, DPS, Digital Publishing Suite, Update, Microsite
+----
+Copyright: This service is <em>not</em> provided by or affiliated with Adobe. <em>Without warranty.</em> Made by (link: http://digitalpublishing.tumblr.com text: Johannes Henseler)
