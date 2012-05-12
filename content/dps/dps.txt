@@ -1,8 +1,8 @@
-Status: Hold your horses
+Status: Update &amp; Create!
 ----
-alert: 
+alert: The v20 marks an important update for DPS, <a href="http://digitalpublishing.tumblr.com/post/22313061669/adobe-releases-v20-of-dps">read more here</a>.
 ----
-rss_update: Adobe released Version 20 &mdash; lot's of new features, including iPhone support. Test carefully.
+rss_update: Content Viewer (v20) approved by Apple (at record speed!) and v20 producer tools (make sure to grab the latest version of the panel from May 4th by manual download).
 ----
 
 dps_sprint: 20
@@ -12,52 +12,52 @@ dps_date: May, 2nd
 
 
 panel_version: 
-12.2.2
+12.2.2.20120504
 ----
 panel_status: 
 green
 ----
 panel_info: 
-<b>Mandatory.</b> You always need to have the latest version.
+There was a silent update on May 4th. Make sure to have the exact same version number (or newer).
 ----
-panel_hint: 
+panel_hint: <b>Mandatory.</b> You always need to have the latest version.
 ----
 
 
 producer_version: 
-1.10 (.20 in info panel)
+7.5.x.20 (CS5.X) 8.0.6.20 (CS6)
 ----
 producer_status: 
-yellow
+green
 ----
 producer_info: 
-No issues reported yet. Test carefully when on live projects.
+Everything seems to be working.
 ----
 producer_hint: Updating the producer tools is always optional. You should wait for the Content Viewer to be approved by Apple before updating (or create your own if you can).
 ----
 
 
 viewerbuilder_version: 
-2.0.0
+2.0.1
 ----
 viewerbuilder_status: 
-yellow
+green
 ----
 viewerbuilder_info: 
-Some issues reported, not yet fully tested. Try on your own risk.
+No issues reported.
 ----
 viewerbuilder_hint: 
 ----
 
 
 viewer_version: 
-v20 2.4.0.x
+v20 2.5.0.x
 ----
 viewer_status: 
-red
+green
 ----
 viewer_info: 
-Not yet approved by Apple. See status of approval in <a href="http://forums.adobe.com/thread/998106?tstart=0">this posting by Neil Enns</a>.
+No issues reported.
 ----
 viewer_hint: If you are a pro/enterprise customer you can <a href="http://adobe.ly/owncontentviewer">build your own Content Viewer</a> to test the latest tools.
 ----

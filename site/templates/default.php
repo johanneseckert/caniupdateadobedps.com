@@ -10,13 +10,18 @@
 		<header class="sixteen columns">
 			<h1><?php echo $data->status() ?></h1>
 		</header>
-		<div class="twelve columns" id="intro">
+		<div class="eight columns" id="intro">
 			<p>Adobe released <a href="http://www.adobe.com/products/digital-publishing-suite-family.html">Digital Publishing Suite</a> <strong>Version <?php echo $data->dps_sprint() ?></strong> on <?php echo $data->dps_date() ?>, introducing <a href="http://help.adobe.com/en_US/digitalpubsuite/using/WS67cb9e293e2f1f60-21ba9a4512e5e5e0b8d-8000.html">lots of new features</a>.
-				It takes a while for all changes to propagate in the DPS ecosystem or until hotfixes are supplied. Before using DPS for work on tight deadlines, check this site or <a href="<?php echo url('dps/feed') ?>" class="feed">subscribe to the feed</a>.</p>
+				You should be careful when updating to the newest tools and test intensively. Before using DPS for work on tight deadlines, check this site or <a href="<?php echo url('dps/feed') ?>" class="feed">subscribe to the feed</a>.</p>
+		</div>
+		<div class="four columns">
+			<p><a href="http://help.adobe.com/en_US/digitalpubsuite/using/WS67cb9e293e2f1f60-21ba9a4512e5e5e0b8d-8000.html">What's new in this release</a><br />
+			<a href="http://helpx.adobe.com/digital-publishing-suite/release-note/dps-bug-fix-release-notes.html">Bug Fix Release Notes</a></p>
+			<p><a href="http://forums.adobe.com/community/dps">Adobe's User Forum for DPS</a></p>
 		</div>
 		<div class="four columns" id="downloads">
 			<a href="http://digitalpublishing.acrobat.com" class="full-width button">Download DPS v<?php echo $data->dps_sprint() ?></a>
-			<p class="small"><a href="http://help.adobe.com/en_US/digitalpubsuite/using/WS67cb9e293e2f1f60-21ba9a4512e5e5e0b8d-7ffe.html">How to install older versions</a></span></p>
+			<p class="small"><a href="http://help.adobe.com/en_US/digitalpubsuite/using/WS67cb9e293e2f1f60-21ba9a4512e5e5e0b8d-7ffe.html">How to install older versions</a></p>
 		</div>
 
 		<div class="sixteen columns">
