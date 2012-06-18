@@ -41,7 +41,7 @@ Make sure to write the url without a trailing slash.
 */
 
 //c::set('url', false);
-//c::set('url', 'http://10.0.1.3:8080');
+//c::set('url', 'http://localhost:8080');
 //c::set('url', 'http://testserver2.dyndns.org:8080');
 c::set('url', 'http://caniupdateadobedps.com');
 

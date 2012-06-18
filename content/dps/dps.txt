@@ -1,63 +1,85 @@
+﻿Title: dps
+
+----
+
 Status: Update &amp; Create!
-----
-alert: The v20 marks an important update for DPS, <a href="http://digitalpublishing.tumblr.com/post/22313061669/adobe-releases-v20-of-dps">read more here</a>.
-----
-rss_update: Content Viewer (v20) approved by Apple (at record speed!) and v20 producer tools (make sure to grab the latest version of the panel from May 4th by manual download).
+
 ----
 
-dps_sprint: 20
-----
-dps_date: May, 2nd
+Alert: Next release of DPS (v21) is scheduled for Tuesday, June 19th. Folio Builder Panel update is required. Producer Tools update is optional for CS5, automatic for CS6.<br /> This update will introduce a feature to create folios in v20.
+
 ----
 
+Rss_update: Subscription viewers from v20 not showing recent issues/subs need to be rebuild using version 2.0.3 of viewer builder. status set to green.
 
-panel_version: 
-12.2.2.20120504
-----
-panel_status: 
-green
-----
-panel_info: 
-There was a silent update on May 4th. Make sure to have the exact same version number (or newer).
-----
-panel_hint: <b>Mandatory.</b> You always need to have the latest version.
 ----
 
+Dps_sprint: 20
 
-producer_version: 
-7.5.x.20 (CS5.X) 8.0.6.20 (CS6)
-----
-producer_status: 
-green
-----
-producer_info: 
-Everything seems to be working.
-----
-producer_hint: Updating the producer tools is always optional. You should wait for the Content Viewer to be approved by Apple before updating (or create your own if you can).
 ----
 
+Dps_date: May, 2nd
 
-viewerbuilder_version: 
-2.0.1
-----
-viewerbuilder_status: 
-green
-----
-viewerbuilder_info: 
-No issues reported.
-----
-viewerbuilder_hint: 
 ----
 
+Panel_version: 12.2.2.20120504
 
-viewer_version: 
-v20 2.5.0.x
 ----
-viewer_status: 
-green
+
+Panel_status: green
+
 ----
-viewer_info: 
-No issues reported.
+
+Panel_info: There was a silent update on May 4th. Make sure to have the exact same version number (or newer).
+
 ----
-viewer_hint: If you are a pro/enterprise customer you can <a href="http://adobe.ly/owncontentviewer">build your own Content Viewer</a> to test the latest tools.
+
+Panel_hint: <b>Mandatory.</b> You always need to have the latest version.
+
 ----
+
+Producer_version: 7.5.x.20 (CS5.X) 8.0.6.20 (CS6)
+
+----
+
+Producer_status: yellow
+
+----
+
+Producer_info: A few issues reported (nothing critical). When using PDF format, don't use alternative layouts in CS6, make separate files instead.
+
+----
+
+Producer_hint: Updating the producer tools is always optional. You should wait for the Content Viewer to be approved by Apple before updating (or create your own if you can).
+
+----
+
+Viewerbuilder_version: 2.0.3
+
+----
+
+Viewerbuilder_status: green
+
+----
+
+Viewerbuilder_info: subscription viewers from v20 should be rebuilt using the latest version of viewer builder.
+
+----
+
+Viewerbuilder_hint: 
+
+----
+
+Viewer_version: v20 2.5.0.x
+
+----
+
+Viewer_status: green
+
+----
+
+Viewer_info: A new version of the viewer is currently in review at Apple. <a href="http://forums.adobe.com/message/4495488#4495488">Watch progress here.</a>
+
+----
+
+Viewer_hint: If you are a pro/enterprise customer you can <a href="http://adobe.ly/owncontentviewer">build your own Content Viewer</a> to test the latest tools.
