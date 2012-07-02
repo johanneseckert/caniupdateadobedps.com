@@ -96,7 +96,7 @@
 	h1 {
 		-webkit-animation: fade-pop .8s 0 1 ease-out;
   		-moz-animation: fade-pop .8s 0 1 ease-out;
-		font-family: "ambroise-std", "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
+		font-family: "abril-text", "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
 		font-size: 600%;
 		color: #191919;
 		line-height: 90%; 

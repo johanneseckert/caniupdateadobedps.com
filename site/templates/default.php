@@ -8,7 +8,7 @@
 
 	<div class="container">
 		<header class="sixteen columns">
-			<h1><?php echo $data->status() ?></h1>
+			<h1 id="title"><?php echo $data->status() ?></h1>
 		</header>
 		<div class="eight columns" id="intro">
 			<p>Adobe released <a href="http://www.adobe.com/products/digital-publishing-suite-family.html">Digital Publishing Suite</a> <strong>Version <?php echo $data->dps_sprint() ?></strong> on <?php echo $data->dps_date() ?>, introducing <a href="http://help.adobe.com/en_US/digitalpubsuite/using/WS67cb9e293e2f1f60-21ba9a4512e5e5e0b8d-8000.html">lots of new features</a>.
