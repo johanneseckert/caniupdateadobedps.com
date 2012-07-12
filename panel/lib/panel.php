@@ -9,19 +9,19 @@ class panel extends site {
 
     s::start();
         
-    c::set('home.keepurl', true);
-    
-    // auto-detect the url if it is not set
-    if(!c::get('url')) c::set('url', c::get('scheme') . server::get('http_host'));
-    
+    $this->urlSetup();
+                        
     // setup the thumb plugin
     c::set('thumb.cache.root', c::get('root') . '/thumbs');
-    c::set('thumb.cache.url',  c::get('url')  . '/thumbs');
+    c::set('thumb.cache.url',  dirname(c::get('url'))  . '/thumbs');
 
-    c::set('url', c::get('url') . '/' . c::get('panel.folder'));
-
-    // remove the panel folder name from the uri
-    c::set('subfolder', ltrim(c::get('subfolder') . '/' . c::get('panel.folder'), '/'));
+    // set the rewrite mode
+    $rewrite = c::get('rewrite');
+    $config  = c::get();
+    
+    if(isset($config['panel.rewrite'])) $rewrite = $config['panel.rewrite'];
+    
+    c::set('panel.rewrite', $rewrite);
 
     // attach the uri after caching
     $this->uri = new paneluri();
@@ -31,19 +31,28 @@ class panel extends site {
       $path  = $this->uri->path->toArray();
       $first = array_shift($path);
   
-      if(!in_array($first, c::get('lang.available', array()))) $first = c::get('lang.default');
+      if(!in_array($first, c::get('lang.available', array()))) {
+        if(empty($first)) {
+          $first = c::get('lang.default');
+        } else {
+          go(c::get('panel.url'));
+        }
+      }
       
       // set the current language
       c::set('lang.current', $first);
           
       $this->uri->path = new uriPath($path);
 
+      // mark if this is a translated version or the default version
+      (c::get('lang.current') != c::get('lang.default')) ? c::set('lang.translated', true) : c::set('lang.translated', false);
+
     }
 
     // get the first set of pages
     $this->rootPages();
     // get the additional site info from content/site.txt
-    $this->siteInfo();
+    $this->info();
                                   
   }
   
@@ -83,7 +92,7 @@ class panel extends site {
     paneload::language();
 
     // check for a valid array of user accounts and other correct setups
-    if(!check::installed() || !check::hasAccounts() || check::stillHasDefaultAccount() || check::wrongKirbyVersion()) {
+    if(!check::installed() || !check::hasAccounts() || check::stillHasDefaultAccount() || check::wrongKirbyVersion() || check::wrongPanelVersion()) {
       require(c::get('root.panel') . '/modals/installation.php');    
       return;
     }
@@ -165,7 +174,29 @@ class panel extends site {
     return new pages($breadcrumb);
       
   }
-    
-}
 
-?>
+  function urlSetup() {
+
+    c::set('home.keepurl', true);
+
+    parent::urlSetup();
+
+    $url         = c::get('url');
+    $panelFolder = c::get('panel.folder');
+    $subfolder   = c::get('subfolder');
+    
+    // add the panel folder to the subfolder
+    if($subfolder && !preg_match('!' . preg_quote($panelFolder) . '$!i', $subfolder)) $subfolder .= '/' . $panelFolder;
+        
+    // check if the url already contains the subfolder      
+    // so it's not included twice
+    if(!preg_match('!' . preg_quote($panelFolder) . '$!i', $url)) $url .= '/' . $panelFolder;
+    
+    // make sure everyting is added to the config    
+    c::set('subfolder', $subfolder);
+    c::set('panel.url', $url);
+    c::set('url', $url);
+    
+  }
+
+}

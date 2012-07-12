@@ -10,10 +10,11 @@
 <?php endif ?>
 
 <meta charset="utf-8" />
-<meta name="viewport" id="viewport" content="width=device-width; initial-scale=1.0; user-scalable=1;" />
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <meta name="robots" content="noindex,nofollow,noarchive" />
 
-<link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/styles.css" />
+<link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/screen.css" />
+<link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/screen.mobile.css" media="only screen and (max-width: 800px)" />
 
 <!--[if lt IE 9]>
 <link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/ie.css" />
@@ -37,18 +38,20 @@
 <body class="<?php echo $panel->uri->path(1) ?> <?php echo browser::css() ?>">
 
 <div class="menu">
-  <h1><a class="home" href="<?php echo c::get('url') . '/' . c::get('lang.current') ?>">Kirby Panel</a></h1>
+  <h1><a class="home" href="<?php echo url() ?>">Kirby Panel</a></h1>
 
   <?php if(c::get('lang.support')): ?>
   <select class="lang" onchange="window.location = this.value">
     <?php foreach(c::get('lang.available') as $lang): ?>  
-    <option value="<?php echo url($panel->uri, $lang) ?>"<?php if($lang == c::get('lang.current')) echo ' selected="selected"' ?>><?php echo str::upper($lang) ?></option>
+    <option value="<?php echo languageToggle($lang) ?>"<?php if($lang == c::get('lang.current')) echo ' selected="selected"' ?>><?php echo str::upper($lang) ?></option>
     <?php endforeach ?>
   </select>
   <?php endif ?>
 
   <?php snippet('pages') ?>
 </div>
+
+<a class="logout" href="<?php echo showurl('logout') ?>"><?php echo l::get('header.logout') ?></a>
 
 <div class="content">
 
@@ -69,8 +72,6 @@
       <?php endforeach ?> 
     </h2>
     <?php endif ?>
-
-    <a class="logout" href="<?php echo showurl('logout') ?>"><?php echo l::get('header.logout') ?></a>
       
   </div>
 

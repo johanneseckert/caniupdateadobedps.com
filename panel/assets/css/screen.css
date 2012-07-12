@@ -4,8 +4,10 @@
 }
 html {
   height: 101%;
+  overflow-y: scroll;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
 }
 body {
   font-family: Helvetica, Arial, sans-serif;
@@ -97,10 +99,11 @@ p {
 .header h2 small:last-child {
   display: none;
 }
-.header .logout {
+
+.logout {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 40px;
   font-weight: bold;
   background: #fff;
   font-size: 15px;
@@ -187,12 +190,13 @@ body:before {
 
 .menu h1 {
   border-bottom: 2px solid #fff;
-  margin: 0 20px;
+  margin: 0 20px 0 20px;
   height: 50px;
 }
 .menu h1 a.home {
   display: block;
   height: 50px;
+  margin-right: 70px;
   color: #fff;
   text-indent: -6000px;
   background: url(../images/home.png) no-repeat left center;
@@ -508,12 +512,20 @@ body:before {
   color: #222;
   padding-bottom: 5px;
 }
+.form label small {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 11px;
+  padding-left: 7px;
+  color: #999;
+}
 .form label .required {
   position: relative;
   display: inline-block;
-  top: 5px;
+  top: 6px;
   padding-left: 7px;
-  color: #ccc;
+  color: #999;
+  font-weight: normal;
   font-size: 20px;
 }
 .form label.inline {
@@ -648,6 +660,7 @@ body:before {
 .form-buttons li {
   display: inline-block;
   margin-right: -3px;
+  margin-bottom: 1px;
 }
 .form-buttons a {
   display: block;
@@ -900,6 +913,13 @@ body:before {
   line-height: 20px;
   margin-bottom: 5px;
 }
+.overlay label small {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 11px;
+  padding-left: 7px;
+  color: #555;
+}
 .overlay label em {
   color: #fff;
 }
@@ -926,7 +946,7 @@ body:before {
   -webkit-appearance: none;
 }
 .overlay input[type=file] {
-  width: 350px;
+  width: 96%;
   padding: 7px;
   margin-top: 10px;
 }

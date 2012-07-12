@@ -72,17 +72,13 @@ c::set('root.content',  $rootContent);
 c::set('root.panel',    $rootPanel);
 
 // panel version
-c::set('panel.version.string', '0.7');
-c::set('panel.version.number', 0.7);
-c::set('panel.min.kirby.version', 1.08);
+c::set('panel.version.string', '0.8.1');
+c::set('panel.version.number', 0.81);
+c::set('panel.min.kirby.version', 1.1);
 c::set('panel.folder', $folder);
 
 paneload::lib();
 paneload::config();
-
-// set the admin url
-c::set('panel.url',    c::get('url') . '/' . $folder);
-
 paneload::parsers();
 
 // switch on errors
@@ -100,5 +96,3 @@ if(c::get('debug')) {
 
 $site = new panel();
 $site->load();
-
-?>
