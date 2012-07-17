@@ -63,24 +63,26 @@ function gist($url, $file=false) {
 
 class kirbytext {
   
-  var $obj   = null;
-  var $text  = null;
-  var $mdown = false;
-  var $tags  = array('gist', 'twitter', 'date', 'image', 'file', 'link', 'email', 'youtube', 'vimeo');
-  var $attr  = array('text', 'file', 'width', 'height', 'link', 'popup', 'class', 'title', 'alt', 'rel');
+  var $obj         = null;
+  var $text        = null;
+  var $mdown       = true;
+  var $smartypants = true;
+  var $tags        = array('gist', 'twitter', 'date', 'image', 'file', 'link', 'email', 'youtube', 'vimeo');
+  var $attr        = array('text', 'file', 'width', 'height', 'link', 'popup', 'class', 'title', 'alt', 'rel', 'lang');
 
-  static function init($text=false, $mdown=true) {
+  static function init($text=false, $mdown=true, $smartypants=true) {
     
     $classname = self::classname();            
-    $kirbytext = new $classname($text, $mdown);    
+    $kirbytext = new $classname($text, $mdown, $smartypants);    
     return $kirbytext->get();    
               
   }
 
-  function __construct($text=false, $mdown=true) {
+  function __construct($text=false, $mdown=true, $smartypants=true) {
       
-    $this->text  = $text;  
-    $this->mdown = $mdown;
+    $this->text        = $text;  
+    $this->mdown       = $mdown;
+    $this->smartypants = $smartypants;
           
     // pass the parent page if available
     if(is_object($this->text)) $this->obj = $this->text->parent;
@@ -92,8 +94,11 @@ class kirbytext {
     $text = preg_replace_callback('!(?=[^\]])\((' . implode('|', $this->tags) . '):(.*?)\)!i', array($this, 'parse'), (string)$this->text);
     $text = preg_replace_callback('!```(.*?)```!is', array($this, 'code'), $text);
     
-    return ($this->mdown) ? markdown($text) : $text;
-
+    $text = ($this->mdown) ? markdown($text) : $text;
+    $text = ($this->smartypants) ? smartypants($text) : $text;
+    
+    return $text;
+    
   }
 
   function code($code) {
@@ -153,7 +158,7 @@ class kirbytext {
         
   }
 
-  function url($url) {
+  function url($url, $lang=false) {
     if(str::contains($url, 'http://') || str::contains($url, 'https://')) return $url;
 
     if(!$this->obj) {
@@ -167,9 +172,9 @@ class kirbytext {
             
     if($files) {
       $file = $files->find($url);
-      $url = ($file) ? $file->url() : url($url);
+      $url = ($file) ? $file->url() : url($url, $lang);
     }
-
+            
     return $url;
   }
 
@@ -179,17 +184,21 @@ class kirbytext {
     $class  = @$params['class'];
     $rel    = @$params['rel'];
     $title  = @$params['title'];
+    $lang   = @$params['lang'];
     $target = self::target($params);
+
+    // language attribute is only allowed when lang support is activated
+    if($lang && !c::get('lang.support')) $lang = false;
 
     // add a css class if available
     if(!empty($class)) $class = ' class="' . $class . '"';
     if(!empty($rel))   $rel   = ' rel="' . $rel . '"';
     if(!empty($title)) $title = ' title="' . html($title) . '"';
         
-    if(empty($url)) return false;
-    if(empty($params['text'])) return '<a' . $target . $class . $rel . $title . ' href="' . $this->url($url) . '">' . html($url) . '</a>';
+    if(empty($url)) $url = '/';
+    if(empty($params['text'])) return '<a' . $target . $class . $rel . $title . ' href="' . $this->url($url, $lang) . '">' . html($url) . '</a>';
 
-    return '<a' . $target . $class . $rel . $title . ' href="' . $this->url($url) . '">' . html($params['text']) . '</a>';
+    return '<a' . $target . $class . $rel . $title . ' href="' . $this->url($url, $lang) . '">' . html($params['text']) . '</a>';
 
   }
 
@@ -312,8 +321,8 @@ class kirbytext {
     $url = 'http://www.youtube.com/embed/' . $id;
     
     // default width and height if no custom values are set
-    if(!$params['width'])  $params['width']  = c::get('kirbytext.video.width');
-    if(!$params['height']) $params['height'] = c::get('kirbytext.video.height');
+    if(empty($params['width']))  $params['width']  = c::get('kirbytext.video.width');
+    if(empty($params['height'])) $params['height'] = c::get('kirbytext.video.height');
     
     // add a classname to the iframe
     if(!empty($class)) $class = ' class="' . $class . '"';
@@ -382,4 +391,3 @@ class kirbytext {
   
 }
 
-?>

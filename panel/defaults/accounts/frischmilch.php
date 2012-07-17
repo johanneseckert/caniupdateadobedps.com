@@ -5,6 +5,6 @@
 # for your passwords. read more about encryption in the
 # docs: http://getkirby.com/panel/accounts
 
-username: admin
-password: adminpassword
+username: frischmilch
+password: ydkjydkj
 language: en
